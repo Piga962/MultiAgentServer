@@ -18,18 +18,14 @@ const getJson = async () => {
         const query = 'SELECT data FROM jsonstorage ORDER BY createdat DESC LIMIT 1';
         const { rows } = await db.query(query);
         if (rows.length > 0) {
+            // Extrae el contenido dentro de 'data' y lo devuelve directamente
             const jsonData = rows[0].data;
-            // Renombra la clave 'stepdds' a 'steps'
-            const response = {
-                steps: jsonData.stepdds
-            };
-            return response;
+            return jsonData; // Devolvemos el JSON tal cual sin la clave 'data'
         }
-        return { steps: [] }; // Devuelve un objeto con una clave 'steps' vacía si no hay resultados
+        return {}; // Devuelve un objeto vacío si no hay resultados
     } catch (error) {
         console.log('Error fetching JSON data', error);
         throw new Error('Error fetching JSON');
     }
 };
-
 module.exports = { createJson, getJson };
