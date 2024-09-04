@@ -8,9 +8,6 @@ const db = new Pool({
     host: process.env.DB_HOST||'bicholover.up.railway.app',
     port: 3000,
     database: 'MultiAgents',
-    ssl:{
-        rejectUnauthorized: false
-    }
 })
 
 module.exports = {db};
