@@ -15,7 +15,7 @@ const createJson = async (json) => {
 // Obtener el último JSON almacenado
 const getJson = async () => {
     try {
-        const query = 'SELECT data FROM jsonstorage ORDER BY createdat DESC LIMIT 1';
+        const query = 'SELECT data FROM jsonstorage ORDER BY id DESC LIMIT 1';
         const { rows } = await db.query(query);
         if (rows.length > 0) {
             // Extrae el contenido dentro de 'data' y lo devuelve directamente
