@@ -17,7 +17,7 @@ const getJson = async () => {
         const {rows} = await db.query(query);
         return rows;
     }catch(error){
-        console.log(error);
+        console.log('Error fetching JSON data',error);
         return error;
     }
 }

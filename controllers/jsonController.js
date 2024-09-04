@@ -6,7 +6,7 @@ async function createJson(req, res){
         const response = await jsonModel.createJson(json);
         res.status(201).json(response);
     }catch(error){
-        console.log(error);
+        console.log('Error in getJson Controller',error);
         res.status(500).json(error);
     }
 }
@@ -16,7 +16,7 @@ async function getJson(req, res){
         const response = await jsonModel.getJson();
         res.status(200).json(response);
     }catch(error){
-        console.log(error);
+        console.log('Error in getJson Controller',error);
         res.status(500).json(error);
     }
 }
